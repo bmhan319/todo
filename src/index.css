@@ -1,3 +1,28 @@
+#root {
+  /* Colors */
+  /* Primary */
+  --Blue: hsl(220, 98%, 61%);
+
+  /* Gradient */
+  --CheckBg1: hsl(192, 100%, 67%);
+  --CheckBg2: hsl(280, 87%, 65%);
+
+  /* Light Theme */
+  --LT_White: hsl(0, 0%, 98%);
+  --LT_LighterGray: hsl(236, 33%, 92%);
+  --LT_LightGray: hsl(233, 11%, 84%);
+  --LT_Gray: hsl(236, 9%, 61%);
+  --LT_DarkGray: hsl(235, 19%, 35%);
+
+  /* Dark Theme */
+  --DT_DarkBlue: hsl(235, 21%, 11%);
+  --DT_DarkBlueDeSat: hsl(235, 24%, 19%);
+  --DT_LightGray: hsl(234, 39%, 85%);
+  --DT_Gray: hsl(234, 11%, 52%);
+  --DT_DarkerGray: hsl(233, 14%, 35%);
+  --DT_DarkestGray: hsl(237, 14%, 26%);
+}
+
 *{
   padding: 0;
   margin: 0;
@@ -5,5 +30,7 @@
 }
 
 body {
-  background-color: #d8d8d8
+  background-color: #d8d8d8;
+  font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
 }
