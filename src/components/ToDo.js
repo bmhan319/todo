@@ -8,7 +8,7 @@ export default class Todo extends Component {
 
           <div className="titleContainer">
             <h1 className="listTitle">TODO</h1>
-            <div className="listMode dayIcon"></div>
+            <div className="listMode dayIcon" onClick={()=>{this.props.changeMode(1)}}></div>
           </div>
 
           <div className="listInputContainer">
