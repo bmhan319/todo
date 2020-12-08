@@ -47,6 +47,8 @@
   color: transparent;
   background-color: transparent;
   border: 2px solid var(--DT_DarkestGray);
+  outline: none;
+  cursor: pointer;
 }
 
 .strokeOff { 
@@ -57,10 +59,16 @@
   stroke: auto;
 }
 
+.listBgNight {
+  background-color: var(--DT_DarkBlueDeSat);
+}
+
+.listBgDay {
+  background-color: var(--LT_White);
+}
 
 /* Input */
 .listInputContainer {
-  background-color: var(--DT_DarkBlueDeSat);
   border-radius: 4px;
   padding: 14px 20px;
   margin-bottom: 16px;
@@ -73,7 +81,6 @@
 
 .listInput {
   width: 85%;
-  background-color: var(--DT_DarkBlueDeSat);
   border: 0;
   color: var(--DT_LightGray);
   font-size: .7em;
@@ -85,7 +92,6 @@
 
 /* List */
 .listContainer {
-  background-color: var(--DT_DarkBlueDeSat);
   border-radius: 4px;
   list-style: none;
   margin-bottom: 12px;
@@ -112,6 +118,12 @@
   background-position: center;
   position: absolute;
   right: 20px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.listItem:hover .closeIcon {
+  opacity: 1;
 }
 
 .listTailItem {
@@ -127,9 +139,7 @@
 
 /* Filter */
 .sortContainer {
-  background-color: var(--DT_DarkBlueDeSat);
   border-radius: 4px;
-  
 }
 
 .sortTextContainer {
@@ -145,7 +155,13 @@
   font-size: .8em;
 }
 
-.sortText:hover {
+.sortAll {
   color: var(--Blue);
+}
+
+.completedItemsClear:hover,
+.sortText:hover {
+  color: var(--DT_LightGray);
   cursor: pointer;
 }
+
