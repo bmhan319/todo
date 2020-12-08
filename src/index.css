@@ -33,4 +33,14 @@ body {
   background-color: #d8d8d8;
   font-size: 18px;
   font-family: 'Josefin Sans', sans-serif;
+  width: 100vw;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  max-width: 1440px;
+  background-color: var(--DT_DarkBlue);
+  margin: 0 auto;
+  position: relative;
 }

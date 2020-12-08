@@ -1,0 +1,66 @@
+.todoComponent {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  padding: 0 24px;
+}
+
+/* List Title */
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.listTitle {
+  color: #fff;
+  letter-spacing: 12px;
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+.listMode {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.dayIcon {
+  background-image: url('../img/icon-sun.svg');
+}
+
+.nightIcon {
+  background-image: url('../img/icon-moon.svg');
+}
+
+/* Input */
+.listInputContainer {
+  background-color: var(--DT_DarkBlueDeSat);
+  border-radius: 4px;
+  padding: 16px 12px;
+}
+
+.listSubmit {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--DT_DarkestGray);
+  margin-right: 12px;
+  background-color: transparent;
+}
+
+.listInput {
+  width: 85%;
+  background-color: var(--DT_DarkBlueDeSat);
+  border: 0;
+  color: var(--DT_LightGray);
+  font-size: .7em;
+}
+
+.listInput:focus {
+  outline: none;
+}
