@@ -12,64 +12,64 @@ export default class Todo extends Component {
           </div>
 
           <div className="listInputContainer listBg listBgNight">
-            <button className="listCheckDesign listSubmit" type="submit">
+            <button className="listCheckDesign listDesignNight listSubmit" type="submit">
               <svg className="listSubmitCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                 <path className="strokeOff listSubmitPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
               </svg>
             </button>
-            <input className="listInput listBg listBgNight" type="text" placeholder="Create a new todo..." />
+            <input className="listInput listText listTextNight listBg listBgNight" type="text" placeholder="Create a new todo..." />
           </div>
 
           <ul className="listContainer listBg listBgNight">
-            <li className="listItem">
-              <button className="listCheckDesign listItemComplete" type="submit">
+            <li className="listItem listBorderNight">
+              <button className="listCheckDesign listDesignNight listItemComplete" type="submit">
                 <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                   <path className="strokeOff listItemPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                 </svg>
               </button>
-              <p className="listItemSubject">Jog around the park 3x</p>
+              <p className="listItemSubject listText listTextNight">Jog around the park 3x</p>
               <div className="closeIcon"></div>
             </li>
-            <li className="listItem">
-              <button className="listCheckDesign listItemComplete" type="submit">
+            <li className="listItem listBorderNight">
+              <button className="listCheckDesign listDesignNight listItemComplete" type="submit">
                 <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                   <path className="strokeOff listItemPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                 </svg>
               </button>
-              <p className="listItemSubject">Jog around the park 3x</p>
+              <p className="listItemSubject listText listTextNight">Jog around the park 3x</p>
               <div className="closeIcon"></div>
             </li>
-            <li className="listItem">
-              <button className="listCheckDesign listItemComplete" type="submit">
+            <li className="listItem listBorderNight">
+              <button className="listCheckDesign listDesignNight listItemComplete" type="submit">
                 <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                   <path className="strokeOff listItemPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                 </svg>
               </button>
-              <p className="listItemSubject">Jog around the park 3x</p>
+              <p className="listItemSubject listText listTextNight">Jog around the park 3x</p>
               <div className="closeIcon"></div>
             </li>
-            <li className="listItem">
-              <button className="listCheckDesign listItemComplete" type="submit">
+            <li className="listItem listBorderNight">
+              <button className="listCheckDesign listDesignNight listItemComplete" type="submit">
                 <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                   <path className="strokeOff listItemPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                 </svg>
               </button>
-              <p className="listItemSubject">Jog around the park 3x</p>
+              <p className="listItemSubject listText listTextNight">Jog around the park 3x</p>
               <div className="closeIcon"></div>
             </li>
-            <li className="listItem">
-              <button className="listCheckDesign listItemComplete" type="submit">
+            <li className="listItem listBorderNight">
+              <button className="listCheckDesign listDesignNight listItemComplete" type="submit">
                 <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                   <path className="strokeOff listItemPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                 </svg>
               </button>
-              <p className="listItemSubject">Jog around the park 3x</p>
+              <p className="listItemSubject listText listTextNight">Jog around the park 3x</p>
               <div className="closeIcon"></div>
             </li>
             
             <li className="listTailItem">
-              <p className="tailItemText itemsLeft">5 items left</p>
-              <p className="tailItemText completedItemsClear">Clear Completed</p>
+              <p className="tailItemText tailItemTextNight itemsLeft">5 items left</p>
+              <p className="tailItemText tailItemTextNight completedItemsClear">Clear Completed</p>
             </li>
 
           </ul>

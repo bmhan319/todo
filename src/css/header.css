@@ -17,7 +17,6 @@
 @media screen and (min-width: 500px) {
   .headerContainer {
     height: 300px;
-    background-image: url('../img/bg-desktop-dark.jpg');
     background-position: 15%;
   }
 

@@ -46,7 +46,8 @@
   margin-right: 12px;
   color: transparent;
   background-color: transparent;
-  border: 2px solid var(--DT_DarkestGray);
+  border-width: 2px;
+  border-style: solid;
   outline: none;
   cursor: pointer;
 }
@@ -67,6 +68,42 @@
   background-color: var(--LT_White);
 }
 
+.listTextNight {
+  color: var(--DT_LightGray);
+}
+
+.listTextDay {
+  color: var(--LT_DarkGray);
+}
+
+.listTextDay::placeholder {
+  color: var(--LT_Gray);
+}
+
+.listDesignNight {
+  border-color: var(--DT_DarkestGray);
+}
+
+.listDesignDay {
+  border-color: var(--LT_LighterGray);
+}
+
+.listBorderNight {
+  border-bottom-color: var(--DT_DarkestGray);
+}
+
+.listBorderDay {
+  border-bottom-color: var(--LT_LighterGray);
+}
+
+.tailItemTextNight {
+  color: var(--DT_DarkerGray);
+}
+
+.tailItemTextDay {
+  color: var(--LT_LightGray);
+}
+
 /* Input */
 .listInputContainer {
   border-radius: 4px;
@@ -82,7 +119,6 @@
 .listInput {
   width: 85%;
   border: 0;
-  color: var(--DT_LightGray);
   font-size: .7em;
 }
 
@@ -99,15 +135,17 @@
 
 .listItem {
   display: flex;
-  border-radius: 4px;
   padding: 16px 20px;
-  border-bottom: 1px solid var(--DT_DarkestGray);
+  border-width: 1px;
+  border-style: solid;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
   position: relative;
   align-items: center;
 }
 
 .listItemSubject {
-  color: var(--DT_LightGray);
   font-size: .7em;
 }
 
@@ -133,7 +171,6 @@
 }
 
 .tailItemText {
-  color: var(--DT_DarkerGray);
   font-size: .7em;
 }
 

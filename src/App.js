@@ -20,20 +20,54 @@ export default class App extends Component {
       document.querySelector('.headerContainer').classList.add('headerNight')
       document.querySelector('.App').classList.remove('bgDayMode')
       document.querySelector('.App').classList.add('bgNightMode')
+      
       document.querySelectorAll('.listBg').forEach( item => {
         item.classList.remove('listBgDay')
         item.classList.add('listBgNight')
        } )
+      document.querySelectorAll('.listText').forEach( item => {
+      item.classList.remove('listTextDay')
+      item.classList.add('listTextNight')
+      } )
+      document.querySelectorAll('.listCheckDesign').forEach( item => {
+        item.classList.remove('listDesignDay')
+        item.classList.add('listDesignNight') 
+      } )
+      document.querySelectorAll('.listItem').forEach( item => {
+        item.classList.remove('listBorderDay')
+        item.classList.add('listBorderNight') 
+      } )
+      document.querySelectorAll('.tailItemText').forEach( item => {
+        item.classList.remove('tailItemTextDay')
+        item.classList.add('tailItemTextNight') 
+      } )
     } else {
       document.querySelector('.listMode').classList.remove('dayIcon')
       document.querySelector('.listMode').classList.add('nightIcon')
       document.querySelector('.headerContainer').classList.remove('headerNight')
       document.querySelector('.headerContainer').classList.add('headerDay')
       document.querySelector('.App').classList.remove('bgNightMode')
-      document.querySelector('.App').classList.add('bgDayMode') 
+      document.querySelector('.App').classList.add('bgDayMode')
+      
       document.querySelectorAll('.listBg').forEach( item => {
         item.classList.remove('listBgNight')
         item.classList.add('listBgDay')
+      } )
+      document.querySelectorAll('.listText').forEach( item => {
+        item.classList.remove('listTextNight')
+        item.classList.add('listTextDay') 
+      } )
+      document.querySelectorAll('.listCheckDesign').forEach( item => {
+        item.classList.remove('listDesignNight')
+        item.classList.add('listDesignDay') 
+      } )
+      document.querySelectorAll('.listItem').forEach( item => {
+        item.classList.remove('listBorderNight')
+        item.classList.add('listBorderDay') 
+      } )
+      document.querySelectorAll('.tailItemText').forEach( item => {
+        item.classList.remove('tailItemTextNight')
+        item.classList.add('tailItemTextDay') 
       } )
     }
   }
