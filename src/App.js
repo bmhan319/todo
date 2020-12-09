@@ -21,6 +21,10 @@ export default class App extends Component {
       document.querySelector('.App').classList.remove('bgDayMode')
       document.querySelector('.App').classList.add('bgNightMode')
       
+      document.querySelectorAll('.tailText').forEach( item => {
+        item.classList.remove('tailTextDay')
+        item.classList.add('tailTextNight')
+       } )
       document.querySelectorAll('.listBg').forEach( item => {
         item.classList.remove('listBgDay')
         item.classList.add('listBgNight')
@@ -49,6 +53,10 @@ export default class App extends Component {
       document.querySelector('.App').classList.remove('bgNightMode')
       document.querySelector('.App').classList.add('bgDayMode')
       
+      document.querySelectorAll('.tailText').forEach( item => {
+        item.classList.remove('tailTextNight')
+        item.classList.add('tailTextDay')
+      } )
       document.querySelectorAll('.listBg').forEach( item => {
         item.classList.remove('listBgNight')
         item.classList.add('listBgDay')

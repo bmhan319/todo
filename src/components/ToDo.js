@@ -69,12 +69,12 @@ export default class Todo extends Component {
             
             <li className="listTailItem">
               <p className="tailItemText tailItemTextNight itemsLeft">5 items left</p>
-              <p className="tailItemText tailItemTextNight completedItemsClear">Clear Completed</p>
+              <p className="tailItemText tailItemTextNight completedItemsClear tailText tailTextNight">Clear Completed</p>
               <div className="sortContainer listBg listBgNight">
                 <div className="sortTextContainer">
-                  <p className="sortText sortAll">All</p>
-                  <p className="sortText sortActive">Active</p>
-                  <p className="sortText sortCompleted">Completed</p>
+                  <p className="sortText tailText tailTextNight sortAll">All</p>
+                  <p className="sortText tailText tailTextNight sortActive">Active</p>
+                  <p className="sortText tailText tailTextNight sortCompleted">Completed</p>
                 </div> 
               </div>
             </li>
