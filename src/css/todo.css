@@ -169,6 +169,7 @@
   display: flex;
   padding: 20px;
   justify-content: space-between;
+  position: relative;
 }
 
 .tailItemText {
@@ -178,12 +179,16 @@
 /* Filter */
 .sortContainer {
   border-radius: 4px;
+  position: absolute;
+  bottom: -72px;
+  left: 0;
+  right: 0;
 }
 
 .sortTextContainer {
   display: flex;
   border-radius: 4px;
-  padding: 20px 80px;
+  padding: 20px 60px;
   align-items: center;
   justify-content: space-between;
 }
