@@ -154,6 +154,7 @@
   height: 12px;
   background-image: url('../img/icon-cross.svg');
   background-position: center;
+  background-size: 100%;
   position: absolute;
   right: 20px;
   opacity: 0;
@@ -202,3 +203,58 @@
   cursor: pointer;
 }
 
+
+@media screen and (min-width: 500px) {
+  .todoComponent {
+    top: 78px;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* List Title */
+  .titleContainer {
+    margin-bottom: 48px;
+  }
+
+  .listTitle {
+    font-size: 2.2em;
+    letter-spacing: 14px;
+  }
+
+  .listMode {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Input */
+  .listInputContainer {
+    padding: 22px 24px;
+    margin-bottom: 22px;
+  }
+
+  .listCheckDesign {
+    width: 24px;
+    height: 24px;
+    margin-right: 24px;
+  }
+
+  .listInput {
+    font-size: .9em;
+  }
+
+  /* List */
+  .listItem {
+    padding: 22px 24px;
+  }
+  
+  .listItemSubject {
+    font-size: .9em;
+  }
+  
+  .closeIcon {
+    width: 20px;
+    height: 20px;
+    right: 24px;
+  }
+}
