@@ -33,6 +33,13 @@ export default class App extends Component {
     })
   }
 
+  complete = (num) => {
+    console.log("complete")
+    document.querySelector('.listItemPath' + num).classList.remove('strokeOff')
+    document.querySelector('.listItemPath').classList.add('strokeOn')
+    document.querySelector('.listComplete' + num).classList.add('listComplete')
+  }
+
   changeMode = (num) => {
     this.setState({
       modeCount: this.state.modeCount + num
@@ -108,7 +115,12 @@ export default class App extends Component {
     return (
       <div className="App bgNightMode">
         <Header />
-        <ToDo state={this.state} changeMode={this.changeMode} handleChange={this.handleChange} close={this.close} handleSubmit={this.handleSubmit} />
+        <ToDo state={this.state} 
+              changeMode={this.changeMode} 
+              handleChange={this.handleChange} 
+              close={this.close} 
+              complete={this.complete} 
+              handleSubmit={this.handleSubmit} />
       </div>
     )
   }

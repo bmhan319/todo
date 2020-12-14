@@ -23,9 +23,9 @@ export default class Todo extends Component {
           <ul className="listContainer listBg listBgNight">
             { this.props.state.list.map( (item,ind) => (
               <li key={ind + item} className={`listItem listBorderNight listItem${ind}`}>
-                <button className="listCheckDesign listDesignNight listItemComplete" type="submit">
+                <button className={`listCheckDesign listDesignNight listItemComplete listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
                   <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
-                    <path className="strokeOff listItemPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
+                    <path className={`strokeOff listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                   </svg>
                 </button>
                 <p className="listItemSubject listText listTextNight">{item}</p>
