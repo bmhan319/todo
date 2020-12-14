@@ -24,6 +24,14 @@ export default class App extends Component {
     document.getElementById('listInput').value = ""
   }
 
+  close = (num) => {
+    let array = [...this.state.list]
+    array.splice(num, 1)
+    this.setState({
+      list: array
+    })
+  }
+
   changeMode = (num) => {
     this.setState({
       modeCount: this.state.modeCount + num
@@ -99,7 +107,7 @@ export default class App extends Component {
     return (
       <div className="App bgNightMode">
         <Header />
-        <ToDo state={this.state} changeMode={this.changeMode} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+        <ToDo state={this.state} changeMode={this.changeMode} handleChange={this.handleChange} close={this.close} handleSubmit={this.handleSubmit} />
       </div>
     )
   }
