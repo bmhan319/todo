@@ -7,6 +7,20 @@ import './css/todo.css'
 export default class App extends Component {
   state= {
     modeCount: 0,
+    input: "",
+    list: []
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      input: event.target.value
+    })
+  }
+
+  handleSubmit = () => {
+    this.setState({
+      list: [...this.state.list, this.state.input]
+    })
   }
 
   changeMode = (num) => {
@@ -84,7 +98,7 @@ export default class App extends Component {
     return (
       <div className="App bgNightMode">
         <Header />
-        <ToDo changeMode={this.changeMode} />
+        <ToDo state={this.state} changeMode={this.changeMode} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
       </div>
     )
   }
