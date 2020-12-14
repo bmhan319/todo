@@ -17,7 +17,7 @@ export default class Todo extends Component {
                 <path className="strokeOff listSubmitPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
               </svg>
             </button>
-            <input className="listInput listText listTextNight listBg listBgNight" onChange={ this.props.handleChange } type="text" placeholder="Create a new todo..." />
+            <input id="listInput" className="listInput listText listTextNight listBg listBgNight" onChange={ this.props.handleChange } type="text" placeholder="Create a new todo..." />
           </div>
 
           <ul className="listContainer listBg listBgNight">

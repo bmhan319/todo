@@ -21,6 +21,7 @@ export default class App extends Component {
     this.setState({
       list: [...this.state.list, this.state.input]
     })
+    document.getElementById('listInput').value = ""
   }
 
   changeMode = (num) => {
