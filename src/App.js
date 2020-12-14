@@ -17,7 +17,8 @@ export default class App extends Component {
     })
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault()
     this.setState({
       list: [...this.state.list, this.state.input]
     })
