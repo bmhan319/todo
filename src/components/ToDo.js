@@ -21,8 +21,8 @@ export default class Todo extends Component {
           </div>
 
           <ul className="listContainer listBg listBgNight">
-            { this.props.state.list.map( item => (
-              <li className="listItem listBorderNight">
+            { this.props.state.list.map( (item,ind) => (
+              <li key={ind + item} className="listItem listBorderNight">
                 <button className="listCheckDesign listDesignNight listItemComplete" type="submit">
                   <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                     <path className="strokeOff listItemPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
