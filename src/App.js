@@ -19,16 +19,23 @@ export default class App extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    if (this.state.input === "") {
+      console.log("Nope")
+    } else {
+      this.setState({
+        list: [...this.state.list, {
+          'todo': this.state.input,
+          'status': 'notDone',
+          'stroke': 'strokeOff',
+          'listComplete': "listNotComplete",
+          'strikeThrough': 'strikeOff'
+        }]
+      })
+      document.getElementById('listInput').value = ""
+    }
     this.setState({
-      list: [...this.state.list, {
-        'todo': this.state.input,
-        'status': 'notDone',
-        'stroke': 'strokeOff',
-        'listComplete': "listNotComplete",
-        'strikeThrough': 'strikeOff'
-      }]
+      input: ""
     })
-    document.getElementById('listInput').value = ""
   }
 
   close = (num) => {
