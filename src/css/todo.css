@@ -84,6 +84,12 @@
   border-color: var(--DT_DarkestGray);
 }
 
+.listDesignNight:hover,
+.listDesignDay:hover {
+  border-image-source: linear-gradient(to bottom right , var(--CheckBg1), var(--CheckBg2));
+  border-image-slice: 1;
+}
+
 .listDesignDay {
   border-color: var(--LT_LighterGray);
 }
@@ -114,6 +120,10 @@
 .listComplete {
   border: 0;
   background-image: linear-gradient(to bottom right , var(--CheckBg1), var(--CheckBg2));
+}
+
+.listNotComplete {
+  background-image: auto;
 }
 
 .listInput {
@@ -147,6 +157,16 @@
 
 .listItemSubject {
   font-size: .7em;
+}
+
+.strikeOff {
+  text-decoration: none;
+  color: var(--DT_LightGray);
+}
+
+.strikeOn {
+  text-decoration: line-through;
+  color: var(--LT_DarkGray);
 }
 
 .closeIcon {

@@ -22,13 +22,13 @@ export default class Todo extends Component {
 
           <ul className="listContainer listBg listBgNight">
             { this.props.state.list.map( (item,ind) => (
-              <li key={ind + item} className={`listItem listBorderNight listItem${ind}`}>
-                <button className={`listCheckDesign listDesignNight listItemComplete listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
+              <li key={ind + item.todo} className={`listItem listBorderNight listItem${ind}`} data-status={item.status} >
+                <button className={`listCheckDesign listDesignNight listItemComplete ${item.listComplete} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
                   <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
-                    <path className={`strokeOff listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
+                    <path className={`${item.stroke} listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                   </svg>
                 </button>
-                <p className="listItemSubject listText listTextNight">{item}</p>
+                <p className={`${item.strikeThrough} listItemSubject listItemSubject${ind} listText listTextNight`} >{item.todo}</p>
                 <div className="closeIcon" onClick={ ()=>{this.props.close(ind)} } ></div>
               </li>
             ) ) }
