@@ -34,7 +34,8 @@ export default class App extends Component {
           'status': 'notDone',
           'stroke': 'strokeOff',
           'listComplete': "listNotComplete",
-          'strikeThrough': 'strikeOff'
+          'strikeThrough': 'strikeOff',
+          'display': 'flex'
         }]
       })
       document.getElementById('listInput').value = ""
@@ -73,6 +74,35 @@ export default class App extends Component {
     document.querySelector('.listItemSubject' + num).classList.add(this.state.list[num].strikeThrough)
   }
 
+  filter = (status) => {
+    let dupeArray = [...this.state.list]
+    let items = document.querySelectorAll('.listItem')
+    dupeArray.forEach( item => {
+      item.display = 'flex'
+    })
+
+    if (status === 'active') {
+      items.forEach( (item, ind) => {
+        if (item.dataset.status === "done") {
+          dupeArray[ind].display = "none"
+        }
+      } )
+    } else if (status === 'complete') {
+      items.forEach( (item, ind) => {
+        if (item.dataset.status === "notDone") {
+          dupeArray[ind].display = "none"
+        }
+      } )
+    } else if (status === 'all') {
+      items.forEach( item => {
+        dupeArray.display = "flex"
+      } )
+    }
+    this.setState({
+      list: dupeArray
+    })
+  }
+
 
   render() {
     return (
@@ -83,7 +113,8 @@ export default class App extends Component {
               handleChange={this.handleChange} 
               close={this.close} 
               complete={this.complete} 
-              handleSubmit={this.handleSubmit} />
+              handleSubmit={this.handleSubmit} 
+              filter={this.filter} />
       </div>
     )
   }

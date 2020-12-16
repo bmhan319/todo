@@ -22,7 +22,7 @@ export default class Todo extends Component {
 
           <ul className="listContainer listBg listBgNight">
             { this.props.state.list.map( (item,ind) => (
-              <li key={ind + item.todo} className={`listItem listBorderNight listItem${ind}`} data-status={item.status} >
+              <li key={ind + item.todo} className={`listItem listBorderNight listItem${ind}`} data-status={item.status} style={{display: item.display}} >
                 <button className={`listCheckDesign listDesignNight listItemComplete ${item.listComplete} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
                   <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                     <path className={`${item.stroke} listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
@@ -38,9 +38,9 @@ export default class Todo extends Component {
               <p className="tailItemText tailItemTextNight completedItemsClear tailText tailTextNight">Clear Completed</p>
               <div className="sortContainer listBg listBgNight">
                 <div className="sortTextContainer">
-                  <p className="sortText tailText tailTextNight sortAll">All</p>
-                  <p className="sortText tailText tailTextNight sortActive">Active</p>
-                  <p className="sortText tailText tailTextNight sortCompleted">Completed</p>
+                  <p onClick={ ()=>{this.props.filter('all')} } className="sortText tailText tailTextNight sortAll">All</p>
+                  <p onClick={ ()=>{this.props.filter('active')} } className="sortText tailText tailTextNight sortActive">Active</p>
+                  <p onClick={ ()=>{this.props.filter('complete')} } className="sortText tailText tailTextNight sortCompleted">Completed</p>
                 </div> 
               </div>
             </li>
