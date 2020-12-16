@@ -23,9 +23,11 @@ export default class App extends Component {
     if (this.state.input === "") {
       inputError.classList.remove('inputErrorOff')
       inputError.classList.add('inputErrorOn')
+      document.querySelector('.listInputContainer').style.border = "2px solid orange"
     } else {
       inputError.classList.remove('inputErrorOn')
       inputError.classList.add('inputErrorOff')
+      document.querySelector('.listInputContainer').style.border = "0"
       this.setState({
         list: [...this.state.list, {
           'todo': this.state.input,
