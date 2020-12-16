@@ -19,7 +19,7 @@ export default class Todo extends Component {
 
           <div className="titleContainer">
             <h1 className="listTitle">TODO</h1>
-            <div className="listMode dayIcon" onClick={()=>{this.props.changeMode(1)}}></div>
+            <div className="listMode dayIcon" onClick={this.props.changeMode}></div>
           </div>
 
           <form className="listInputContainer inputError inputErrorOff listBg listBgNight" onSubmit={ this.props.handleSubmit }>
@@ -33,7 +33,7 @@ export default class Todo extends Component {
 
           <ul className="listContainer listBg listBgNight">
             <li className="listBorderNight emptyListNight emptyList">
-              You have no tasks on your list. Yeah! <br />
+              You have no tasks on your To-do list. Yeah! <br />
               Add a task in the input form above.
             </li>
             { this.props.state.list.map( (item,ind) => (

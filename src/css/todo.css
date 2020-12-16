@@ -73,11 +73,11 @@
 }
 
 .listTextDay {
-  color: var(--LT_DarkGray);
+  color: var(--LT_DarkGray)!important;
 }
 
 .listTextDay::placeholder {
-  color: var(--LT_Gray);
+  color: var(--LT_Gray)!important;
 }
 
 .listDesignNight {
@@ -107,7 +107,7 @@
 }
 
 .tailItemTextDay {
-  color: var(--LT_LightGray);
+  color: var(--LT_Gray);
 }
 
 /* Input */
@@ -156,7 +156,7 @@
 }
 
 .emptyListDay {
-  color: orange;
+  color: var(--LT_DarkGray);
 }
 
 /* List */
