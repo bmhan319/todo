@@ -18,10 +18,14 @@ export default class App extends Component {
   }
 
   handleSubmit = (event) => {
+    const inputError = document.querySelector('.inputError')
     event.preventDefault()
     if (this.state.input === "") {
-      console.log("Nope")
+      inputError.classList.remove('inputErrorOff')
+      inputError.classList.add('inputErrorOn')
     } else {
+      inputError.classList.remove('inputErrorOn')
+      inputError.classList.add('inputErrorOff')
       this.setState({
         list: [...this.state.list, {
           'todo': this.state.input,

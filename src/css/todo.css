@@ -260,7 +260,27 @@
   .listInputContainer {
     padding: 22px 24px;
     margin-bottom: 22px;
+    position: relative;
   }
+
+  .inputError::after {
+    content: "Enter a valid list item";
+    color: orange;
+    font-size: .7em;
+    font-style: italic;
+    position: absolute;
+    bottom: 4px;
+    left: 72px;
+  }
+
+  .inputErrorOff::after {
+    visibility: hidden;
+  }
+
+  .inputErrorOn::after {
+    visibility: visible;
+  }
+
 
   .listCheckDesign {
     width: 24px;

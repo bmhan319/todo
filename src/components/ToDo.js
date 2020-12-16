@@ -11,7 +11,7 @@ export default class Todo extends Component {
             <div className="listMode dayIcon" onClick={()=>{this.props.changeMode(1)}}></div>
           </div>
 
-          <form className="listInputContainer listBg listBgNight" onSubmit={ this.props.handleSubmit }>
+          <form className="listInputContainer inputError inputErrorOff listBg listBgNight" onSubmit={ this.props.handleSubmit }>
             <button className="listCheckDesign listDesignNight listSubmit" type="submit"  >
               <svg className="listSubmitCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                 <path className="strokeOff listSubmitPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
