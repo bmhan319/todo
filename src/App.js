@@ -20,6 +20,7 @@ export default class App extends Component {
   handleSubmit = (event) => {
     const inputError = document.querySelector('.inputError')
     event.preventDefault()
+    document.querySelector('.emptyList').style.display = "none"
     if (this.state.input === "") {
       inputError.classList.remove('inputErrorOff')
       inputError.classList.add('inputErrorOn')
@@ -116,6 +117,8 @@ export default class App extends Component {
       list: dupeArray
     })
   }
+
+  
 
 
   render() {

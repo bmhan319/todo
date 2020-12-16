@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
 
 export default class Todo extends Component {
+  reset = () => {
+    let items = document.querySelectorAll('.listItem')
+    if (items.length === 0) {
+      document.querySelector('.emptyList').style.display = "flex"
+    }
+  }
+
+  componentDidUpdate() {
+    this.reset()
+  }
+  
   render() {
     return (
       <div className="todoComponent">
@@ -21,6 +32,10 @@ export default class Todo extends Component {
           </form>
 
           <ul className="listContainer listBg listBgNight">
+            <li className="listBorderNight emptyListNight emptyList">
+              You have no tasks on your list. Yeah! <br />
+              Add a task in the input form above.
+            </li>
             { this.props.state.list.map( (item,ind) => (
               <li key={ind + item.todo} className={`listItem listBorderNight listItem${ind}`} data-status={item.status} style={{display: item.display}} >
                 <button className={`listCheckDesign listDesignNight listItemComplete ${item.listComplete} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
