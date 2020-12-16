@@ -77,27 +77,41 @@ export default class App extends Component {
   filter = (status) => {
     let dupeArray = [...this.state.list]
     let items = document.querySelectorAll('.listItem')
+    document.querySelectorAll('.sortText').forEach( item => {
+      item.style.color = "var(--DT_Gray)"
+    })
     dupeArray.forEach( item => {
       item.display = 'flex'
     })
 
-    if (status === 'active') {
+    if (status === 'Active') {
+      document.querySelector('.sortActive').style.color = "var(--Blue)"
       items.forEach( (item, ind) => {
         if (item.dataset.status === "done") {
           dupeArray[ind].display = "none"
         }
       } )
-    } else if (status === 'complete') {
+    } else if (status === 'Complete') {
+      document.querySelector('.sortCompleted').style.color = "var(--Blue)"
       items.forEach( (item, ind) => {
         if (item.dataset.status === "notDone") {
           dupeArray[ind].display = "none"
         }
       } )
-    } else if (status === 'all') {
+    } else if (status === 'All') {
+      document.querySelector('.sortAll').style.color = "var(--Blue)"
       items.forEach( item => {
         dupeArray.display = "flex"
       } )
+    } else if (status === "Clear") {
+      document.querySelector('.sortAll').style.color = "var(--Blue)"
+      for (let i = dupeArray.length - 1; i >= 0; i--) {
+        if (dupeArray[i].status === "done") {
+          dupeArray.splice(i, 1)
+        }
+      }
     }
+
     this.setState({
       list: dupeArray
     })

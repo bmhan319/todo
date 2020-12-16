@@ -35,12 +35,12 @@ export default class Todo extends Component {
             
             <li className="listTailItem">
               <p className="tailItemText tailItemTextNight itemsLeft">{this.props.state.list.length} items left</p>
-              <p className="tailItemText tailItemTextNight completedItemsClear tailText tailTextNight">Clear Completed</p>
+              <p  onClick={ ()=>{this.props.filter('Clear')} } className="tailItemText tailItemTextNight completedItemsClear tailText tailTextNight">Clear Completed</p>
               <div className="sortContainer listBg listBgNight">
                 <div className="sortTextContainer">
-                  <p onClick={ ()=>{this.props.filter('all')} } className="sortText tailText tailTextNight sortAll">All</p>
-                  <p onClick={ ()=>{this.props.filter('active')} } className="sortText tailText tailTextNight sortActive">Active</p>
-                  <p onClick={ ()=>{this.props.filter('complete')} } className="sortText tailText tailTextNight sortCompleted">Completed</p>
+                  <p onClick={ ()=>{this.props.filter('All')} } className="sortText tailText tailTextNight sortAll">All</p>
+                  <p onClick={ ()=>{this.props.filter('Active')} } className="sortText tailText tailTextNight sortActive">Active</p>
+                  <p onClick={ ()=>{this.props.filter('Complete')} } className="sortText tailText tailTextNight sortCompleted">Completed</p>
                 </div> 
               </div>
             </li>

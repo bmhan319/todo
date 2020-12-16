@@ -218,17 +218,13 @@
   font-size: .8em;
 }
 
-.sortAll {
-  color: var(--Blue);
-}
-
 .tailTextNight:hover {
-  color: var(--DT_LightGray);
+  color: var(--DT_LightGray)!important;
   cursor: pointer;
 }
 
 .tailTextDay:hover {
-  color: var(--LT_DarkGray);
+  color: var(--LT_DarkGray)!important;
   cursor: pointer;
 }
 
