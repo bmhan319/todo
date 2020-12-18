@@ -43,14 +43,24 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  border: 0;
   margin-right: 12px;
   color: transparent;
-  background-color: transparent;
-  border-width: 2px;
-  border-style: solid;
   outline: none;
   cursor: pointer;
+  position: relative;
 }
+
+.innerButton {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .strokeOff { 
   stroke: none;
@@ -81,17 +91,32 @@
 }
 
 .listDesignNight {
-  border-color: var(--DT_DarkestGray);
+  background-color: var(--DT_DarkestGray);
+}
+
+.innerButtonNight {
+  background-color: var(--DT_DarkBlueDeSat);
 }
 
 .listDesignNight:hover,
 .listDesignDay:hover {
-  border-image-source: linear-gradient(to bottom right , var(--CheckBg1), var(--CheckBg2));
-  border-image-slice: 1;
+  background-image: linear-gradient(to bottom right , var(--CheckBg1), var(--CheckBg2));
 }
 
 .listDesignDay {
   border-color: var(--LT_LighterGray);
+}
+
+.innerButtonDay {
+  background-color: var(--LT_White);
+}
+
+.buttonVisible {
+  background-color: transparent; 
+}
+
+.buttonInvisible {
+  background-color: auto; 
 }
 
 .listBorderNight {

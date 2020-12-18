@@ -10,9 +10,17 @@ export default class Todo extends Component {
 
   mode = () => {
     if (this.props.state.isDark === false && document.querySelector('.listItemSubject') != null) {
-      document.querySelectorAll('.listItemSubject').forEach(item=>{
+      document.querySelectorAll('.listItemSubject').forEach( item => {
         item.classList.remove('listTextNight')
         item.classList.add('listTextDay')
+      })
+      document.querySelectorAll('.listCheckDesign').forEach( item => {
+        item.classList.remove('listDesignNight')
+        item.classList.add('listDesignDay') 
+      } )
+      document.querySelectorAll('.innerButton').forEach( item => {
+        item.classList.remove('innerButtonNight')
+        item.classList.add('innerButtonDay') 
       })
     }
   }
@@ -34,9 +42,11 @@ export default class Todo extends Component {
 
           <form className="listInputContainer inputError inputErrorOff listBg listBgNight" onSubmit={ this.props.handleSubmit }>
             <button className="listCheckDesign listDesignNight listSubmit" type="submit"  >
+            <div className="innerButton innerButtonNight">
               <svg className="listSubmitCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                 <path className="strokeOff listSubmitPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
               </svg>
+              </div>
             </button>
             <input id="listInput" className="listInput listText listTextNight listBg listBgNight" onChange={ this.props.handleChange } type="text" placeholder="Create a new todo..." />
           </form>
@@ -49,9 +59,11 @@ export default class Todo extends Component {
             { this.props.state.list.map( (item,ind) => (
               <li key={ind + item.todo} className={`listItem listBorderNight listItem${ind}`} data-status={item.status} style={{display: item.display}} >
                 <button className={`listCheckDesign listDesignNight listItemComplete ${item.listComplete} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
+                  <div className={`innerButton innerButton${ind} innerButtonNight`} >
                   <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                     <path className={`${item.stroke} listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                   </svg>
+                  </div>
                 </button>
                 <p className={`${item.strikeThrough} listItemSubject listItemSubject${ind} listText listTextNight`} >{item.todo}</p>
                 <div className="closeIcon" onClick={ ()=>{this.props.close(ind)} } ></div>

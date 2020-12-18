@@ -45,7 +45,8 @@ export default class App extends Component {
           'stroke': 'strokeOff',
           'listComplete': "listNotComplete",
           'strikeThrough': 'strikeOff',
-          'display': 'flex'
+          'display': 'flex',
+          'innerBG': 'visible'
         }]
       })
       document.getElementById('listInput').value = ""
@@ -69,11 +70,13 @@ export default class App extends Component {
     document.querySelector('.listItemPath' + num).classList.remove(dupeArray[num].stroke)
     document.querySelector('.listComplete' + num).classList.remove(dupeArray[num].listComplete)
     document.querySelector('.listItemSubject' + num).classList.remove(dupeArray[num].strikeThrough)
+    document.querySelector('.innerButton' + num).classList.remove(dupeArray[num].innerBg)
 
     dupeArray[num].status = (document.querySelector('.listItem' + num).dataset.status === 'notDone') ? "done" : "notDone"
     dupeArray[num].stroke = (document.querySelector('.listItem' + num).dataset.status === 'notDone') ? "strokeOn" : "strokeOff"
     dupeArray[num].listComplete = (document.querySelector('.listItem' + num).dataset.status === 'notDone') ? "listComplete" : "listNotComplete"
     dupeArray[num].strikeThrough = (document.querySelector('.listItem' + num).dataset.status === 'notDone') ? "strikeOn" : "strikeOff"
+    dupeArray[num].innerBg = (document.querySelector('.listItem' + num).dataset.status === 'notDone') ? "buttonVisible" : "buttonInvisible"
     
     this.setState({
       list: dupeArray
@@ -82,6 +85,7 @@ export default class App extends Component {
     document.querySelector('.listItemPath' + num).classList.add(this.state.list[num].stroke)   
     document.querySelector('.listComplete' + num).classList.add(this.state.list[num].listComplete)
     document.querySelector('.listItemSubject' + num).classList.add(this.state.list[num].strikeThrough)
+    document.querySelector('.innerButton' + num).classList.add(this.state.list[num].innerBg)
   }
 
   filter = (status) => {
@@ -157,6 +161,10 @@ export default class App extends Component {
         item.classList.remove('listDesignDay')
         item.classList.add('listDesignNight') 
       } )
+      document.querySelectorAll('.innerButton').forEach( item => {
+        item.classList.remove('innerButtonDay')
+        item.classList.add('innerButtonNight') 
+      } )
       document.querySelectorAll('.listItem').forEach( item => {
         item.classList.remove('listBorderDay')
         item.classList.add('listBorderNight') 
@@ -190,6 +198,10 @@ export default class App extends Component {
       document.querySelectorAll('.listCheckDesign').forEach( item => {
         item.classList.remove('listDesignNight')
         item.classList.add('listDesignDay') 
+      } )
+      document.querySelectorAll('.innerButton').forEach( item => {
+        item.classList.remove('innerButtonNight')
+        item.classList.add('innerButtonDay') 
       } )
       document.querySelectorAll('.listItem').forEach( item => {
         item.classList.remove('listBorderNight')

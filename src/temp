@@ -1,7 +1,409 @@
  To do
-1) Light Mode...fix so text comes out dark whn creating a task on light modeCount
-2) fihure out round hover state
-3) Make code more efficient
+1) fihure out round hover state
+2) Make code more efficient
+
+
+
+
+
+
+
+
+{ this.props.state.list.map( (item,ind) => (
+  <li key={ind + item.todo} className={`listItem listBorderNight listItem${ind}`} data-status={item.status} style={{display: item.display}} >
+    <button className={`listCheckDesign listDesignNight listItemComplete ${item.listComplete} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
+      <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
+        <path className={`${item.stroke} listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
+      </svg>
+    </button>
+    <p className={`${item.strikeThrough} listItemSubject listItemSubject${ind} listText listTextNight`} >{item.todo}</p>
+    <div className="closeIcon" onClick={ ()=>{this.props.close(ind)} } ></div>
+  </li>
+) ) }
+
+.listCheckDesign {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 12px;
+  color: transparent;
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.todoComponent {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  padding: 0 24px;
+}
+
+/* List Title */
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.listTitle {
+  color: #fff;
+  letter-spacing: 12px;
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+.listMode {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  cursor: pointer;
+}
+
+.dayIcon {
+  background-image: url('../img/icon-sun.svg');
+}
+
+.nightIcon {
+  background-image: url('../img/icon-moon.svg');
+}
+
+/* Global List Styles */
+.listCheckDesign {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 12px;
+  color: transparent;
+  background-color: green;
+  border-width: 2px;
+  border-style: solid;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.innerButton {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+
+.strokeOff { 
+  stroke: none;
+}
+
+.strokeOn {
+  stroke: auto;
+}
+
+.listBgNight {
+  background-color: var(--DT_DarkBlueDeSat);
+}
+
+.listBgDay {
+  background-color: var(--LT_White);
+}
+
+.listTextNight {
+  color: var(--DT_LightGray);
+}
+
+.listTextDay {
+  color: var(--LT_DarkGray)!important;
+}
+
+.listTextDay::placeholder {
+  color: var(--LT_Gray)!important;
+}
+
+.listDesignNight {
+  border-color: var(--DT_DarkestGray);
+}
+
+.listDesignNight:hover,
+.listDesignDay:hover {
+  border-image-source: linear-gradient(to bottom right , var(--CheckBg1), var(--CheckBg2));
+  border-image-slice: 1;
+}
+
+.listDesignDay {
+  border-color: var(--LT_LighterGray);
+}
+
+.listBorderNight {
+  border-bottom-color: var(--DT_DarkestGray);
+}
+
+.listBorderDay {
+  border-bottom-color: var(--LT_LighterGray);
+}
+
+.tailItemTextNight {
+  color: var(--DT_DarkerGray);
+}
+
+.tailItemTextDay {
+  color: var(--LT_Gray);
+}
+
+/* Input */
+.listInputContainer {
+  border-radius: 4px;
+  padding: 14px 20px;
+  margin-bottom: 16px;
+}
+
+.listComplete {
+  border: 0;
+  background-image: linear-gradient(to bottom right , var(--CheckBg1), var(--CheckBg2));
+}
+
+.listNotComplete {
+  background-image: auto;
+}
+
+.listInput {
+  width: 85%;
+  border: 0;
+  font-size: .7em;
+}
+
+.listInput:focus {
+  outline: none;
+}
+
+/* Empty List */
+.emptyList {
+  line-height: 24px;
+  font-size: .9em;
+  display: flex;
+  padding: 16px 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  position: relative;
+  align-items: center;
+}
+
+.emptyListNight {
+  color: var(--DT_LightGray);
+}
+
+.emptyListDay {
+  color: var(--LT_DarkGray);
+}
+
+/* List */
+.listContainer {
+  border-radius: 4px;
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.listItem {
+  display: flex;
+  padding: 16px 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  position: relative;
+  align-items: center;
+}
+
+.listItemSubject {
+  font-size: .7em;
+}
+
+.strikeOff {
+  text-decoration: none;
+  color: var(--DT_LightGray);
+}
+
+.strikeOn {
+  text-decoration: line-through;
+  color: var(--LT_DarkGray);
+}
+
+.closeIcon {
+  width: 12px;
+  height: 12px;
+  background-image: url('../img/icon-cross.svg');
+  background-position: center;
+  background-size: 100%;
+  position: absolute;
+  right: 20px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.listItem:hover .closeIcon {
+  opacity: 1;
+}
+
+.listTailItem {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.tailItemText {
+  font-size: .7em;
+}
+
+/* Filter */
+.sortContainer {
+  border-radius: 4px;
+  position: absolute;
+  bottom: -72px;
+  left: 0;
+  right: 0;
+}
+
+.sortTextContainer {
+  display: flex;
+  border-radius: 4px;
+  padding: 20px 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sortText {
+  color: var(--DT_Gray);
+  font-size: .8em;
+}
+
+.tailTextNight:hover {
+  color: var(--DT_LightGray)!important;
+  cursor: pointer;
+}
+
+.tailTextDay:hover {
+  color: var(--LT_DarkGray)!important;
+  cursor: pointer;
+}
+
+
+@media screen and (min-width: 500px) {
+  .todoComponent {
+    top: 78px;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* List Title */
+  .titleContainer {
+    margin-bottom: 48px;
+  }
+
+  .listTitle {
+    font-size: 2.2em;
+    letter-spacing: 14px;
+  }
+
+  .listMode {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Input */
+  .listInputContainer {
+    padding: 22px 24px;
+    margin-bottom: 22px;
+    position: relative;
+  }
+
+  .inputError::after {
+    content: "Enter a valid list item";
+    color: orange;
+    font-size: .7em;
+    font-style: italic;
+    position: absolute;
+    bottom: 4px;
+    left: 72px;
+  }
+
+  .inputErrorOff::after {
+    visibility: hidden;
+  }
+
+  .inputErrorOn::after {
+    visibility: visible;
+  }
+
+
+  .listCheckDesign {
+    width: 24px;
+    height: 24px;
+    margin-right: 24px;
+  }
+
+  .listInput {
+    font-size: .9em;
+  }
+
+  /* List */
+  .listItem {
+    padding: 22px 24px;
+  }
+  
+  .listItemSubject {
+    font-size: .9em;
+  }
+  
+  .closeIcon {
+    width: 20px;
+    height: 20px;
+    right: 24px;
+  }
+
+  /* Filter */
+  .sortContainer {
+    border-radius: 4px;
+    position: absolute;
+    bottom: 50%;
+    left: 30%;
+    right: 36%;
+    transform: translateY(50%);
+  }
+
+  .sortTextContainer {
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tailItemText {
+    font-size: .8em;
+    font-weight: 400;
+  }
+
+  .sortText{
+    font-size: .85em;
+    font-weight: 600;
+  }
+}
+
+
 
 
 
