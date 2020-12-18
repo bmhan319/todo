@@ -8,8 +8,18 @@ export default class Todo extends Component {
     }
   }
 
+  mode = () => {
+    if (this.props.state.isDark === false && document.querySelector('.listItemSubject') != null) {
+      document.querySelectorAll('.listItemSubject').forEach(item=>{
+        item.classList.remove('listTextNight')
+        item.classList.add('listTextDay')
+      })
+    }
+  }
+
   componentDidUpdate() {
     this.reset()
+    this.mode()
   }
   
   render() {
