@@ -59,7 +59,7 @@ export default class Todo extends Component {
                 <div className="sortTextContainer">
                   <p onClick={ ()=>{this.props.filter('All')} } className={`sortText tailText tailText${this.props.state.mode} sortAll`}>All</p>
                   <p onClick={ ()=>{this.props.filter('Active')} } className={`sortText tailText tailText${this.props.state.mode} sortActive`}>Active</p>
-                  <p onClick={ ()=>{this.props.filter('Complete')} } className={`sortText tailText tailText${this.props.state.mode} sortCompleted`}>Completed</p>
+                  <p onClick={ ()=>{this.props.filter('Complete')} } className={`sortText tailText tailText${this.props.state.mode} sortComplete`}>Completed</p>
                 </div> 
               </div>
             </li>
