@@ -65,11 +65,11 @@
 }
 
 
-.strokeOff { 
+.strokeNotDone { 
   stroke: none;
 }
 
-.strokeOn {
+.strokeDone {
   stroke: auto;
 }
 
@@ -82,23 +82,23 @@
 }
 
 .inputTextNight,
-.strikeOffListTextNight {
+.strikeNotDoneListTextNight {
   color: var(--DT_LightGray);
   text-decoration: none;
 }
 
-.strikeOnListTextNight {
+.strikeDoneListTextNight {
   color: var(--DT_Gray);
   text-decoration: line-through;
 }
 
 .inputTextDay,
-.strikeOffListTextDay {
+.strikeNotDoneListTextDay {
   color: var(--LT_DarkGray);
   text-decoration: none;
 }
 
-.strikeOnListTextDay {
+.strikeDoneListTextDay {
   color: var(--LT_LightGray);
   text-decoration: line-through;
 }
@@ -128,11 +128,11 @@
   background-color: var(--LT_White);
 }
 
-.buttonVisible {
+.buttonDone {
   background-color: transparent; 
 }
 
-.buttonInvisible {
+.buttonNotDone {
   background-color: auto; 
 }
 
@@ -193,12 +193,12 @@
   left: 52px;
 }
 
-.listComplete {
+.checkBgDone {
   border: 0;
   background-image: linear-gradient(to bottom right , var(--CheckBg1), var(--CheckBg2));
 }
 
-.listNotComplete {
+.checkBgNotDone {
   background-image: auto;
 }
 

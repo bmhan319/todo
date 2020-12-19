@@ -26,7 +26,7 @@ export default class Todo extends Component {
             <button className={`listCheckDesign listDesign${this.props.state.mode} listSubmit`} type="submit"  >
               <div className={`innerButton innerButton${this.props.state.mode}`}>
                 <svg className="listSubmitCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
-                  <path className="strokeOff listSubmitPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
+                  <path className={`strokeNotDone listSubmitPath`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                 </svg>
               </div>
             </button>
@@ -40,14 +40,14 @@ export default class Todo extends Component {
             </li>
             { this.props.state.list.map( (item,ind) => (
               <li key={ind + item.todo} className={`listItem listBorder${this.props.state.mode} listItem${ind}`} data-status={item.status} style={{display: item.display}} >
-                <button className={`listCheckDesign listDesign${this.props.state.mode} listItemComplete ${item.listComplete} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
-                  <div className={`innerButton innerButton${ind} innerButton${this.props.state.mode}`} >
+                <button className={`listCheckDesign listDesign${this.props.state.mode} listItemComplete checkBg${item.status} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
+                  <div className={`innerButton innerButton${ind} innerButton${this.props.state.mode} button${item.status}`} >
                     <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
-                      <path className={`${item.stroke} listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
+                      <path className={`stroke${item.status} listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                     </svg>
                   </div>
                 </button>
-                <p className={`${item.strikeThrough}ListText${this.props.state.mode} listItemSubject listItemSubject${ind} listText${this.props.state.mode}`} >{item.todo}</p>
+                <p className={`strike${item.status}ListText${this.props.state.mode} listItemSubject listItemSubject${ind} listText${this.props.state.mode}`} >{item.todo}</p>
                 <div className="closeIcon" onClick={ ()=>{this.props.close(ind)} } ></div>
               </li>
             ) ) }
