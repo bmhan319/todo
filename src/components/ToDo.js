@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 
 export default class Todo extends Component {
+
+  //Upon deleting all list items, Empty list element is displayed
   reset = () => {
     let items = document.querySelectorAll('.listItem')
     if (items.length === 0) {document.querySelector('.emptyList').style.display = "flex"}
   }
 
+  //Runs the Reset function if a component is updated
   componentDidUpdate() {
     this.reset()
   }

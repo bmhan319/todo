@@ -39,8 +39,6 @@
 }
 
 
-
-
 /* Global List Styles */
 .listCheckDesign {
   width: 20px;
@@ -63,7 +61,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 
 .strokeNotDone { 
   stroke: none;
