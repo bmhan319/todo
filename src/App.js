@@ -9,7 +9,15 @@ export default class App extends Component {
     isDark: true,
     mode: 'Night',
     input: "",
+    inputError: 'Off',
     list: [],
+  }
+
+  changeMode = () => {
+    this.setState({
+      isDark: !this.state.isDark,
+      mode: (this.state.isDark === false) ? "Night" : "Day"
+    })
   }
 
   handleChange = (event) => {
@@ -24,13 +32,14 @@ export default class App extends Component {
     document.querySelector('.emptyList').style.display = "none"
 
     if (this.state.input === "") {
-      inputError.classList.remove('inputErrorOff')
-      inputError.classList.add('inputErrorOn')
-      document.querySelector('.listInputContainer').style.border = "2px solid orange"
+      this.setState({
+        inputError: 'On',
+      })
     } else {
-      inputError.classList.remove('inputErrorOn')
-      inputError.classList.add('inputErrorOff')
-      document.querySelector('.listInputContainer').style.border = "0"
+      this.setState({
+        inputError: 'Off',
+      })
+      
       document.querySelectorAll('.sortText').forEach(item=>{
         item.style.color = "var(--DT_Gray)"
       })
@@ -129,13 +138,6 @@ export default class App extends Component {
 
     this.setState({
       list: dupeArray
-    })
-  }
-
-  changeMode = () => {
-    this.setState({
-      isDark: !this.state.isDark,
-      mode: (this.state.isDark === false) ? "Night" : "Day"
     })
   }
 

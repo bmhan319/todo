@@ -166,7 +166,31 @@
   border-radius: 4px;
   padding: 14px 20px;
   margin-bottom: 16px;
+  display: flex;
+  position: relative;
+}
 
+.inputErrorOff {
+  border: 0;
+}
+
+.inputErrorOn {
+  border: 2px solid orange;
+}
+
+.inputErrorOff::after {
+  visibility: hidden;
+}
+
+.inputErrorOn::after {
+  visibility: visible;
+  content: "Enter a valid list item";
+  color: orange;
+  font-size: .6em;
+  font-style: italic;
+  position: absolute;
+  bottom: 2px;
+  left: 52px;
 }
 
 .listComplete {
@@ -325,32 +349,34 @@
   .listInputContainer {
     padding: 22px 24px;
     margin-bottom: 22px;
-    position: relative;
   }
 
-  .inputError::after {
-    content: "Enter a valid list item";
-    color: orange;
-    font-size: .7em;
-    font-style: italic;
-    position: absolute;
-    bottom: 4px;
-    left: 72px;
-  }
-
-  .inputErrorOff::after {
-    visibility: hidden;
+  .inputErrorOn {
+    border-width: 3px;
   }
 
   .inputErrorOn::after {
-    visibility: visible;
+    font-size: .7em;
+    bottom: 4px;
+    left: 72px;
   }
-
 
   .listCheckDesign {
     width: 24px;
     height: 24px;
     margin-right: 24px;
+  }
+
+  .innerButton {
+    width: 20px;
+    height: 20px;
+  }
+
+  .listItemCheck {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .listInput {

@@ -22,12 +22,12 @@ export default class Todo extends Component {
             <div className={`listMode icon${this.props.state.mode}`} onClick={this.props.changeMode}></div>
           </div>
 
-          <form className={`listInputContainer inputError inputErrorOff listBg${this.props.state.mode}`} onSubmit={ this.props.handleSubmit }>
+          <form className={`listInputContainer inputError inputError${this.props.state.inputError} listBg${this.props.state.mode}`} onSubmit={ this.props.handleSubmit }>
             <button className={`listCheckDesign listDesign${this.props.state.mode} listSubmit`} type="submit"  >
-            <div className={`innerButton innerButton${this.props.state.mode}`}>
-              <svg className="listSubmitCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
-                <path className="strokeOff listSubmitPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
-              </svg>
+              <div className={`innerButton innerButton${this.props.state.mode}`}>
+                <svg className="listSubmitCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
+                  <path className="strokeOff listSubmitPath" fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
+                </svg>
               </div>
             </button>
             <input id="listInput" className={`listInput inputText${this.props.state.mode} listBg${this.props.state.mode}`} onChange={ this.props.handleChange } type="text" placeholder="Create a new todo..." />
@@ -42,9 +42,9 @@ export default class Todo extends Component {
               <li key={ind + item.todo} className={`listItem listBorder${this.props.state.mode} listItem${ind}`} data-status={item.status} style={{display: item.display}} >
                 <button className={`listCheckDesign listDesign${this.props.state.mode} listItemComplete ${item.listComplete} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
                   <div className={`innerButton innerButton${ind} innerButton${this.props.state.mode}`} >
-                  <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
-                    <path className={`${item.stroke} listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
-                  </svg>
+                    <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
+                      <path className={`${item.stroke} listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
+                    </svg>
                   </div>
                 </button>
                 <p className={`${item.strikeThrough}ListText${this.props.state.mode} listItemSubject listItemSubject${ind} listText${this.props.state.mode}`} >{item.todo}</p>
