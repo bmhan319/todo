@@ -1,0 +1,3 @@
+1) Fix vertical ui and horizontal scrollbar when number of items go lower than window height.
+2) Save list items to local storage
+3) Drag and drop to reorder items on the list
