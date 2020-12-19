@@ -7,6 +7,7 @@ import './css/todo.css'
 export default class App extends Component {
   state= {
     isDark: true,
+    mode: 'Night',
     input: "",
     list: [],
   }
@@ -133,91 +134,15 @@ export default class App extends Component {
 
   changeMode = () => {
     this.setState({
-      isDark: !this.state.isDark
+      isDark: !this.state.isDark,
+      mode: (this.state.isDark === false) ? "Night" : "Day"
     })
-    if(this.state.isDark === false) {
-      document.querySelector('.listMode').classList.remove('nightIcon')
-      document.querySelector('.listMode').classList.add('dayIcon')
-      document.querySelector('.headerContainer').classList.remove('headerDay')
-      document.querySelector('.headerContainer').classList.add('headerNight')
-      document.querySelector('.App').classList.remove('bgDayMode')
-      document.querySelector('.App').classList.add('bgNightMode')
-      document.querySelector('.emptyList').classList.remove('emptyListDay')
-      document.querySelector('.emptyList').classList.add('emptyListNight')
-      
-      document.querySelectorAll('.tailText').forEach( item => {
-        item.classList.remove('tailTextDay')
-        item.classList.add('tailTextNight')
-      } )
-      document.querySelectorAll('.listBg').forEach( item => {
-        item.classList.remove('listBgDay')
-        item.classList.add('listBgNight')
-      } )
-      document.querySelectorAll('.listText').forEach( item => {
-      item.classList.remove('listTextDay')
-      item.classList.add('listTextNight')
-      } )
-      document.querySelectorAll('.listCheckDesign').forEach( item => {
-        item.classList.remove('listDesignDay')
-        item.classList.add('listDesignNight') 
-      } )
-      document.querySelectorAll('.innerButton').forEach( item => {
-        item.classList.remove('innerButtonDay')
-        item.classList.add('innerButtonNight') 
-      } )
-      document.querySelectorAll('.listItem').forEach( item => {
-        item.classList.remove('listBorderDay')
-        item.classList.add('listBorderNight') 
-      } )
-      document.querySelectorAll('.tailItemText').forEach( item => {
-        item.classList.remove('tailItemTextDay')
-        item.classList.add('tailItemTextNight') 
-      } )
-    } else {
-      document.querySelector('.listMode').classList.remove('dayIcon')
-      document.querySelector('.listMode').classList.add('nightIcon')
-      document.querySelector('.headerContainer').classList.remove('headerNight')
-      document.querySelector('.headerContainer').classList.add('headerDay')
-      document.querySelector('.App').classList.remove('bgNightMode')
-      document.querySelector('.App').classList.add('bgDayMode')
-      document.querySelector('.emptyList').classList.remove('emptyListNight')
-      document.querySelector('.emptyList').classList.add('emptyListDay')
-      
-      document.querySelectorAll('.tailText').forEach( item => {
-        item.classList.remove('tailTextNight')
-        item.classList.add('tailTextDay')
-      } )
-      document.querySelectorAll('.listBg').forEach( item => {
-        item.classList.remove('listBgNight')
-        item.classList.add('listBgDay')
-      } )
-      document.querySelectorAll('.listText').forEach( item => {
-        item.classList.remove('listTextNight')
-        item.classList.add('listTextDay') 
-      } )
-      document.querySelectorAll('.listCheckDesign').forEach( item => {
-        item.classList.remove('listDesignNight')
-        item.classList.add('listDesignDay') 
-      } )
-      document.querySelectorAll('.innerButton').forEach( item => {
-        item.classList.remove('innerButtonNight')
-        item.classList.add('innerButtonDay') 
-      } )
-      document.querySelectorAll('.listItem').forEach( item => {
-        item.classList.remove('listBorderNight')
-        item.classList.add('listBorderDay') 
-      } )
-      document.querySelectorAll('.tailItemText').forEach( item => {
-        item.classList.remove('tailItemTextNight')
-        item.classList.add('tailItemTextDay') 
-      } )
-    }
   }
 
   render() {
     return (
-      <div className="App bgNightMode">
-        <Header />
+      <div className={`App bg${this.state.mode}`}>
+        <Header state={this.state} />
         <ToDo state={this.state} 
               changeMode={this.changeMode} 
               handleChange={this.handleChange} 

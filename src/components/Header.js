@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Header() {
+export default function Header(props) {
   return (
     <div className="headerComponent">
-      <div className="headerContainer headerNight"></div>
+      <div className={`headerContainer header${props.state.mode}`}></div>
     </div>
   )
 }

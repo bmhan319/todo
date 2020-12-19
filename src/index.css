@@ -44,10 +44,10 @@ body {
   position: relative;
 }
 
-.bgNightMode {
+.bgNight {
   background-color: var(--DT_DarkBlue);
 }
 
-.bgDayMode {
+.bgDay {
   background-color: var(--LT_LighterGray);
 }
