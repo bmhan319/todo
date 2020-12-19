@@ -20,7 +20,7 @@ export default class App extends Component {
     })
   }
 
-  handleChange = (event) => {
+  handleInput = (event) => {
     this.setState({input: event.target.value})
   }
 
@@ -30,16 +30,15 @@ export default class App extends Component {
     this.setState({inputError: (this.state.input === "") ? 'On' : 'Off'})
 
     if (this.state.input !== "") {
-      document.querySelector('.sortAll').style.color = "var(--Blue)"
       document.querySelectorAll('.sortText').forEach( item => {item.style.color = "var(--DT_Gray)"} )
       document.querySelectorAll('.listItem').forEach( item => {item.style.display = "flex"} )  
+      document.querySelector('.sortAll').style.color = "var(--Blue)"
       
       this.setState({
         list: [...this.state.list, {
           'todo': this.state.input,
           'status': 'NotDone',
-          'display': 'flex',
-          'innerBG': 'visible'
+          'display': 'flex'
         }]
       })
 
@@ -53,6 +52,10 @@ export default class App extends Component {
     let array = [...this.state.list]
     array.splice(num, 1)
     this.setState({list: array})
+
+    if (array.length === 0) {
+      document.querySelectorAll('.sortText').forEach( item => {item.style.color = "var(--DT_Gray)"} )
+    }
   }
 
   complete = (num) => {
@@ -66,37 +69,28 @@ export default class App extends Component {
     let dupeArray = [...this.state.list]
     let items = document.querySelectorAll('.listItem')
     document.querySelectorAll('.sortText').forEach( item => {item.style.color = "var(--DT_Gray)"} )
-    dupeArray.forEach( item => {item.display = 'flex'} )
     document.querySelector(`.sort${status}`).style.color = "var(--Blue)"
+    dupeArray.forEach( item => {item.display = 'flex'} )
 
     if (status === 'Active') {
       items.forEach( (item, ind) => {
-        if (item.dataset.status === "Done") {
-          dupeArray[ind].display = "none"
-        }
+        if (item.dataset.status === "Done") {dupeArray[ind].display = "none"}
       } )
     } else if (status === 'Complete') {
       items.forEach( (item, ind) => {
-        if (item.dataset.status === "NotDone") {
-          dupeArray[ind].display = "none"
-        }
+        if (item.dataset.status === "NotDone") {dupeArray[ind].display = "none"}
       } )
     } else if (status === 'All') {
-      items.forEach( item => {
-        dupeArray.display = "flex"
-      } )
+      items.forEach( item => {dupeArray.display = "flex"} )
     } else if (status === "Clear") {
-      document.querySelector('.sortAll').style.color = "var(--Blue)"
       for (let i = dupeArray.length - 1; i >= 0; i--) {
-        if (dupeArray[i].status === "Done") {
-          dupeArray.splice(i, 1)
-        }
+        if (dupeArray[i].status === "Done") {dupeArray.splice(i, 1)}
       }
     }
-
-    this.setState({
-      list: dupeArray
-    })
+    if (dupeArray.length === 0) {
+      document.querySelectorAll('.sortText').forEach( item => {item.style.color = "var(--DT_Gray)"} )
+    }
+    this.setState({list: dupeArray})
   }
 
   render() {
@@ -105,7 +99,7 @@ export default class App extends Component {
         <Header state={this.state} />
         <ToDo state={this.state} 
               changeMode={this.changeMode} 
-              handleChange={this.handleChange} 
+              handleInput={this.handleInput} 
               close={this.close} 
               complete={this.complete} 
               handleSubmit={this.handleSubmit} 

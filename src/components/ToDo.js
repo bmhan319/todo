@@ -3,9 +3,7 @@ import React, { Component } from 'react'
 export default class Todo extends Component {
   reset = () => {
     let items = document.querySelectorAll('.listItem')
-    if (items.length === 0) {
-      document.querySelector('.emptyList').style.display = "flex"
-    }
+    if (items.length === 0) {document.querySelector('.emptyList').style.display = "flex"}
   }
 
   componentDidUpdate() {
@@ -30,7 +28,7 @@ export default class Todo extends Component {
                 </svg>
               </div>
             </button>
-            <input id="listInput" className={`listInput inputText${this.props.state.mode} listBg${this.props.state.mode}`} onChange={ this.props.handleChange } type="text" placeholder="Create a new todo..." />
+            <input id="listInput" className={`listInput inputText${this.props.state.mode} listBg${this.props.state.mode}`} onChange={ this.props.handleInput } type="text" placeholder="Create a new todo..." />
           </form>
 
           <ul className={`listContainer listBg${this.props.state.mode}`}>
@@ -57,7 +55,7 @@ export default class Todo extends Component {
               <p  onClick={ ()=>{this.props.filter('Clear')} } className={`tailItemText tailItemText${this.props.state.mode} completedItems completedItems${this.props.state.mode}`}>Clear Completed</p>
               <div className={`sortContainer listBg${this.props.state.mode}`}>
                 <div className="sortTextContainer">
-                  <p onClick={ ()=>{this.props.filter('All')} } className={`sortText tailText tailText${this.props.state.mode} sortAll`}>All</p>
+                  <p onClick={ ()=>{this.props.filter('All')} } className={`sortText tailText tailText${this.props.state.mode} sortClear sortAll`}>All</p>
                   <p onClick={ ()=>{this.props.filter('Active')} } className={`sortText tailText tailText${this.props.state.mode} sortActive`}>Active</p>
                   <p onClick={ ()=>{this.props.filter('Complete')} } className={`sortText tailText tailText${this.props.state.mode} sortComplete`}>Completed</p>
                 </div> 
