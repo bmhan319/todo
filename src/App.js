@@ -119,14 +119,14 @@ export default class App extends Component {
     this.setState({list: dupeArray})
   }
 
-  //Saves state.list up to local storage
+  // Saves state.list up to local storage
   localStorageSave = () => {
     localStorage.setItem("list", JSON.stringify(this.state.list))
     localStorage.setItem("isDark", JSON.stringify(this.state.isDark))
     localStorage.setItem("mode", JSON.stringify(this.state.mode))
   }
 
-  //Retreives state.list from local storage and moves it into state
+  // Retreives state.list from local storage and moves it into state
   localStorageGet = () => {
     this.setState({ 
       list: JSON.parse(localStorage.getItem("list")) ,
@@ -134,6 +134,26 @@ export default class App extends Component {
       mode: JSON.parse(localStorage.getItem("mode"))
     })
     document.querySelector('.emptyList').style.display = (this.state.list.length > 0) ? "none" : "flex"
+  }
+
+  // Runs when a dragged item get dropped
+  // This function is tied to the 'drag' and 'allowDrop' function to the ToDo.js component
+  drop = (e) => {
+    e.preventDefault()
+    
+    // creates dupe of state.list array
+    // takes index position of dragged element and landing element
+    // and removes dragged element from array
+    // and places it in back into the array at the landing element
+    // then setsState with the dupeArray to refresh the UI
+    const dragPos = e.dataTransfer.getData("draggedItemPosistion")
+    const dropPos = e.target.dataset.num
+    let dupeArray = [...this.state.list]
+    let removeItem = dupeArray.splice(dragPos,1)
+    dupeArray.splice(dropPos,0,removeItem[0])
+    this.setState({
+      list: dupeArray
+    })
   }
 
   componentDidUpdate() {
@@ -154,7 +174,8 @@ export default class App extends Component {
               close={this.close} 
               complete={this.complete} 
               handleSubmit={this.handleSubmit} 
-              filter={this.filter} />
+              filter={this.filter}
+              drop={this.drop} />
       </div>
     )
   }

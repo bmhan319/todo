@@ -1,7 +1,17 @@
 import React, { Component } from 'react'
 
 export default class Todo extends Component {
-  //Creating keyboard functionality to run the filter sort function
+  // Takes record of the index position of the drageed element
+  drag = (e) => {
+    e.dataTransfer.setData("draggedItemPosistion", e.target.dataset.num)
+  }
+
+  // Sets permission to have an element receive another dragged element
+  allowDrop = (e) => {
+    e.preventDefault()
+  }
+
+  // Creating keyboard functionality to run the filter sort function
   onKeyPress = (e) => {
     const status = e.target.dataset.filter
     if (e.charCode === 13){
@@ -9,7 +19,7 @@ export default class Todo extends Component {
     }
   }
 
-  //Upon deleting all list items, Empty list element is displayed
+  // Upon deleting all list items, Empty list element is displayed
   reset = () => {
     let items = document.querySelectorAll('.listItem')
     if (items.length === 0) {document.querySelector('.emptyList').style.display = "flex"}
@@ -41,13 +51,13 @@ export default class Todo extends Component {
             <input id="listInput" className={`listInput inputText${this.props.state.mode} listBg${this.props.state.mode}`} onChange={ this.props.handleInput } type="text" placeholder="Create a new todo..." />
           </form>
 
-          <ul className={`listContainer listBg${this.props.state.mode}`}>
+          <ul id="list" onDrop={this.props.drop} onDragOver={this.allowDrop} className={`listContainer listBg${this.props.state.mode}`}>
             <li className={`listBorder${this.props.state.mode} emptyList${this.props.state.mode} emptyList`}>
               You have no tasks on your To-do list. Yeah! <br />
               Add a task in the input form above.
             </li>
             { this.props.state.list.map( (item,ind) => (
-              <li key={ind + item.todo} className={`listItem listBorder${this.props.state.mode} listItem${ind}`} data-status={item.status} style={{display: item.display}} >
+              <li onDragStart={this.drag} draggable="true" id={`listItem${ind}`} key={ind + item.todo} className={`listItem listBorder${this.props.state.mode} listItem${ind}`} data-status={item.status} data-num={ind} style={{display: item.display}} >
                 <button tabIndex="0" className={`listTab listCheckDesign listDesign${this.props.state.mode} listItemComplete checkBg${item.status} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
                   <div className={`innerButton innerButton${ind} innerButton${this.props.state.mode} button${item.status}`} >
                     <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
