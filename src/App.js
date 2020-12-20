@@ -122,11 +122,17 @@ export default class App extends Component {
   //Saves state.list up to local storage
   localStorageSave = () => {
     localStorage.setItem("list", JSON.stringify(this.state.list))
+    localStorage.setItem("isDark", JSON.stringify(this.state.isDark))
+    localStorage.setItem("mode", JSON.stringify(this.state.mode))
   }
 
   //Retreives state.list from local storage and moves it into state
   localStorageGet = () => {
-    this.setState({ list: JSON.parse(localStorage.getItem("list")) })
+    this.setState({ 
+      list: JSON.parse(localStorage.getItem("list")) ,
+      isDark: JSON.parse(localStorage.getItem("isDark")),
+      mode: JSON.parse(localStorage.getItem("mode"))
+    })
     document.querySelector('.emptyList').style.display = (this.state.list.length > 0) ? "none" : "flex"
   }
 
