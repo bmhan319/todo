@@ -67,6 +67,7 @@ export default class Todo extends Component {
                 </button>
                 <p className={`strike${item.status}ListText${this.props.state.mode} listItemSubject listItemSubject${ind} listText${this.props.state.mode}`} >{item.todo}</p>
                 <div tabIndex="0" className="closeIcon" onKeyPress={ ()=>{this.props.close(ind)} } onClick={ ()=>{this.props.close(ind)} } ></div>
+                <div className="dragIcon">..</div>
               </li>
             ) ) }
             
