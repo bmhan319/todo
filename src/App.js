@@ -119,6 +119,11 @@ export default class App extends Component {
     this.setState({list: dupeArray})
   }
 
+  componentDidUpdate() {
+    localStorage.setItem("state", JSON.stringify(this.state.list));
+    //console.log( JSON.parse(localStorage.getItem("state")) )
+  }
+
   render() {
     return (
       <div className={`App bg${this.state.mode}`}>
