@@ -154,7 +154,7 @@
 }
 
 .completedItemsDay:hover {
-  color: var(--LT_DarkGray);
+  color: var(--LT_DarkestGray);
 }
 
 
@@ -314,10 +314,31 @@
 }
 
 .tailTextDay:hover {
-  color: var(--LT_DarkGray)!important;
+  color: var(--LT_DarkestGray)!important;
   cursor: pointer;
 }
 
+/* Tab Accessibility */
+.listTab:focus {
+  background-image: linear-gradient(to bottom right , var(--CheckBg1), var(--CheckBg2));
+}
+
+.closeIcon:focus {
+  outline: none;
+  opacity: 1;
+}
+
+.tailTextNight:focus,
+.completedItemsNight:focus {
+  outline: none;
+  color: var(--DT_LightGray) !important;
+}
+
+.tailTextDay:focus,
+.completedItemsDay:focus {
+  outline: none;
+  color: var(--LT_DarkestGray) !important;
+}
 
 @media screen and (min-width: 500px) {
   .todoComponent {
