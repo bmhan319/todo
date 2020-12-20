@@ -119,9 +119,23 @@ export default class App extends Component {
     this.setState({list: dupeArray})
   }
 
+  //Saves state.list up to local storage
+  localStorageSave = () => {
+    localStorage.setItem("list", JSON.stringify(this.state.list))
+  }
+
+  //Retreives state.list from local storage and moves it into state
+  localStorageGet = () => {
+    this.setState({ list: JSON.parse(localStorage.getItem("list")) })
+    document.querySelector('.emptyList').style.display = (this.state.list.length > 0) ? "none" : "flex"
+  }
+
   componentDidUpdate() {
-    localStorage.setItem("state", JSON.stringify(this.state.list));
-    //console.log( JSON.parse(localStorage.getItem("state")) )
+    this.localStorageSave()
+  }
+
+  componentDidMount() {
+    window.onload = () => {this.localStorageGet()}
   }
 
   render() {
