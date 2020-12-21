@@ -86,6 +86,7 @@ export default class App extends Component {
   filter = (status) => {
     // create a dupe array of list items
     // greys out all filter option text except for the one that is chosen by user
+    // sends filter status up to local storage
     let dupeArray = [...this.state.list]
     let items = document.querySelectorAll('.listItem')
     document.querySelectorAll('.sortText').forEach( item => {item.style.color = "var(--DT_Gray)"} )
@@ -137,6 +138,7 @@ export default class App extends Component {
       })
       document.querySelector('.emptyList').style.display = (this.state.list.length > 0) ? "none" : "flex"
     }
+    // Sets filter text to blue dependant on where it was left off on last session
     if (localStorage.filter  && localStorage.filter !== 'Clear') {
       document.querySelector(`.sort${JSON.parse(localStorage.getItem("filter"))}`).style.color = "var(--Blue)"
     }
