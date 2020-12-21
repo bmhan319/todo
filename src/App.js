@@ -10,7 +10,7 @@ export default class App extends Component {
     mode: 'Night',
     input: "",
     inputError: 'Off',
-    list: [""],
+    list: [],
   }
 
   // Changes Mode to day or night
@@ -161,7 +161,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    window.onload = () => {this.localStorageGet()}
+    //window.onload = () => {this.localStorageGet()}
   }
 
   render() {
