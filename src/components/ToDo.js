@@ -41,14 +41,14 @@ export default class Todo extends Component {
           </div>
 
           <form className={`listInputContainer inputError inputError${this.props.state.inputError} listBg${this.props.state.mode}`} onSubmit={ this.props.handleSubmit }>
-            <button tabIndex="-1" className={`listCheckDesign listDesign${this.props.state.mode} listSubmit`} type="submit"  >
+            <button tabIndex="-1" className={`listCheckDesign listDesign${this.props.state.mode} listSubmit`} type="submit"  aria-label="submit list item">
               <div className={`innerButton innerButton${this.props.state.mode}`}>
                 <svg className="listSubmitCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                   <path className={`strokeNotDone listSubmitPath`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                 </svg>
               </div>
             </button>
-            <input id="listInput" className={`listInput inputText${this.props.state.mode} listBg${this.props.state.mode}`} onChange={ this.props.handleInput } type="text" placeholder="Create a new todo..." />
+            <input id="listInput" className={`listInput inputText${this.props.state.mode} listBg${this.props.state.mode}`} onChange={ this.props.handleInput } type="text" aria-label="list item input" placeholder="Create a new todo..." />
           </form>
 
           <ul id="list" onDrop={this.props.drop} onDragOver={this.allowDrop} className={`listContainer listBg${this.props.state.mode}`}>
