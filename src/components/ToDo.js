@@ -56,29 +56,7 @@ export default class Todo extends Component {
               You have no tasks on your To-do list. Yeah! <br />
               Add a task in the input form above.
             </li>
-            { this.props.state.list.map( (item,ind) => (
-              <li onDragStart={this.drag} draggable="true" id={`listItem${ind}`} key={ind + item.todo} className={`listItem listBorder${this.props.state.mode} listItem${ind}`} data-status={item.status} data-num={ind} style={{display: item.display}} >
-                <button tabIndex="0" className={`listTab listCheckDesign listDesign${this.props.state.mode} listItemComplete checkBg${item.status} listComplete${ind}`} type="button" onClick={ ()=>{this.props.complete(ind)} } >
-                  <div className={`innerButton innerButton${ind} innerButton${this.props.state.mode} button${item.status}`} >
-                    <svg className="listItemCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
-                      <path className={`stroke${item.status} listItemPath listItemPath${ind}`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
-                    </svg>
-                  </div>
-                </button>
-                <p className={`strike${item.status}ListText${this.props.state.mode} listItemSubject listItemSubject${ind} listText${this.props.state.mode}`} >{item.todo}</p>
-                <div tabIndex="0" className="closeIcon" onKeyPress={ ()=>{this.props.close(ind)} } onClick={ ()=>{this.props.close(ind)} } ></div>
-                <div className={`dragIconContainer dragIconContainer${this.props.state.mode}`}>
-                  <svg className={`dragIcon dragIcon${this.props.state.mode}`} xmlns="http://www.w3.org/2000/svg" version="1.1" width="12" height="25" viewBox="0 0 16 25">
-                    <g transform="matrix(0.06 0 0 0.06 4.54 4.78)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 10.46 4.95)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 10.46 12.58)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 4.54 12.58)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 10.46 20.22)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 4.54 20.22)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                  </svg>
-                </div>
-              </li>
-            ) ) }
+
             
             <li className="listTailItem">
               <p className={`tailItemText tailItemText${this.props.state.mode} itemsLeft`}>{this.props.state.list.length} items left</p>
