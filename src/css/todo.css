@@ -343,6 +343,7 @@
 /* Tab Accessibility */
 .listTab:focus {
   background-image: linear-gradient(to bottom right , var(--CheckBg1), var(--CheckBg2));
+  opacity: .8;
 }
 
 .closeIcon:focus {
@@ -353,7 +354,7 @@
 .tailTextNight:focus,
 .completedItemsNight:focus {
   outline: none;
-  border-bottom: 1px solid hsl(234, 39%, 85%);
+  border-bottom: 1px solid hsl(234, 11%, 52%);
 }
 
 .tailTextDay:focus,
