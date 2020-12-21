@@ -48,6 +48,7 @@
   margin-right: 12px;
   color: transparent;
   position: relative;
+  outline: none;
 }
 
 .innerButton {
