@@ -325,6 +325,11 @@
   font-size: .8em;
 }
 
+.tailText,
+.completedItems {
+  border-bottom: 1px solid transparent;
+}
+
 .tailTextNight:hover {
   color: var(--DT_LightGray)!important;
   cursor: pointer;
@@ -348,13 +353,13 @@
 .tailTextNight:focus,
 .completedItemsNight:focus {
   outline: none;
-  color: var(--DT_LightGray) !important;
+  border-bottom: 1px solid hsl(234, 39%, 85%);
 }
 
 .tailTextDay:focus,
 .completedItemsDay:focus {
   outline: none;
-  color: var(--LT_DarkestGray) !important;
+  border-bottom: 1px solid hsl(235, 19%, 35%);
 }
 
 @media screen and (min-width: 500px) {
