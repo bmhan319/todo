@@ -67,16 +67,7 @@ export default class Todo extends Component {
                 </button>
                 <p className={`strike${item.status}ListText${this.props.state.mode} listItemSubject listItemSubject${ind} listText${this.props.state.mode}`} >{item.todo}</p>
                 <div tabIndex="0" className="closeIcon" onKeyPress={ ()=>{this.props.close(ind)} } onClick={ ()=>{this.props.close(ind)} } ></div>
-                <div className={`dragIconContainer dragIconContainer${this.props.state.mode}`}>
-                  <svg className={`dragIcon dragIcon${this.props.state.mode}`} xmlns="http://www.w3.org/2000/svg" version="1.1" width="12" height="25" viewBox="0 0 16 25">
-                    <g transform="matrix(0.06 0 0 0.06 4.54 4.78)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 10.46 4.95)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 10.46 12.58)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 4.54 12.58)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 10.46 20.22)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                    <g transform="matrix(0.06 0 0 0.06 4.54 20.22)" id="7f71c613-7da3-4dd0-ae89-eff54506ea04"  ><circle cx="0" cy="0" r="35" /></g>
-                  </svg>
-                </div>
+
               </li>
             ) ) }
             
@@ -91,10 +82,7 @@ export default class Todo extends Component {
                 </div> 
               </div>
             </li>
-
           </ul>
-
-          
         </div>
       </div>
     )
