@@ -8,9 +8,9 @@ export default class App extends Component {
   state= {
     isDark: true,
     mode: 'Night',
-    input: "",
+    input: '',
     inputError: 'Off',
-    list: [],
+    list: []
   }
 
   // Changes Mode to day or night
@@ -91,6 +91,7 @@ export default class App extends Component {
     document.querySelectorAll('.sortText').forEach( item => {item.style.color = "var(--DT_Gray)"} )
     document.querySelector(`.sort${status}`).style.color = "var(--Blue)"
     dupeArray.forEach( item => {item.display = 'flex'} )
+    localStorage.setItem("filter", JSON.stringify(status))
 
     // If 'Active' is chosen, 'Completed' items are hidden
     if (status === 'Active') {
@@ -135,7 +136,9 @@ export default class App extends Component {
         mode: JSON.parse(localStorage.getItem("mode"))
       })
       document.querySelector('.emptyList').style.display = (this.state.list.length > 0) ? "none" : "flex"
-      document.querySelector('.sortAll').style.color = "var(--Blue)"
+    }
+    if (localStorage.filter  && localStorage.filter !== 'Clear') {
+      document.querySelector(`.sort${JSON.parse(localStorage.getItem("filter"))}`).style.color = "var(--Blue)"
     }
   }
 
