@@ -163,9 +163,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    window.onload = () => {
-      this.localStorageGet()
-    }
+    window.onload = () => {this.localStorageGet()}
   }
 
   render() {
