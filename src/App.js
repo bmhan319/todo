@@ -10,7 +10,7 @@ export default class App extends Component {
     mode: 'Night',
     input: "",
     inputError: 'Off',
-    list: [],
+    list: [""],
   }
 
   // Changes Mode to day or night
