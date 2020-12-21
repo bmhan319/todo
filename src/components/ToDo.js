@@ -41,12 +41,12 @@ export default class Todo extends Component {
           </div>
 
           <form className={`listInputContainer inputError inputError${this.props.state.inputError} listBg${this.props.state.mode}`} onSubmit={ this.props.handleSubmit }>
-            <div tabIndex="-1" className={`listCheckDesign listDesign${this.props.state.mode} listSubmit`} type="submit"  aria-label="submit list item">
-              <div className={`innerButton innerButton${this.props.state.mode}`}>
+            <div className={`listCheckDesign listDesign${this.props.state.mode} listSubmit`} >
+              <button tabIndex="-1" className={`innerButton innerButton${this.props.state.mode}`} type="submit"  aria-label="submit list item">
                 <svg className="listSubmitCheck" xmlns="http://www.w3.org/2000/svg" width="11" height="9">
                   <path className={`strokeNotDone listSubmitPath`} fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/>
                 </svg>
-              </div>
+              </button>
             </div>
             <input id="listInput" className={`listInput inputText${this.props.state.mode} listBg${this.props.state.mode}`} onChange={ this.props.handleInput } type="text" aria-label="list item input" placeholder="Create a new todo..." />
           </form>
