@@ -128,12 +128,14 @@ export default class App extends Component {
 
   // Retreives state.list from local storage and moves it into state
   localStorageGet = () => {
-    this.setState({ 
-      list: JSON.parse(localStorage.getItem("list")) ,
-      isDark: JSON.parse(localStorage.getItem("isDark")),
-      mode: JSON.parse(localStorage.getItem("mode"))
-    })
-    document.querySelector('.emptyList').style.display = (this.state.list.length > 0) ? "none" : "flex"
+    if (localStorage.list) {
+      this.setState({ 
+        list: JSON.parse(localStorage.getItem("list")) ,
+        isDark: JSON.parse(localStorage.getItem("isDark")),
+        mode: JSON.parse(localStorage.getItem("mode"))
+      })
+      document.querySelector('.emptyList').style.display = (this.state.list.length > 0) ? "none" : "flex"
+    }
   }
 
   // Runs when a dragged item get dropped
@@ -161,7 +163,9 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    //window.onload = () => {this.localStorageGet()}
+    window.onload = () => {
+      this.localStorageGet()
+    }
   }
 
   render() {
