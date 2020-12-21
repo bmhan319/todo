@@ -135,6 +135,7 @@ export default class App extends Component {
         mode: JSON.parse(localStorage.getItem("mode"))
       })
       document.querySelector('.emptyList').style.display = (this.state.list.length > 0) ? "none" : "flex"
+      document.querySelector('.sortAll').style.color = "var(--Blue)"
     }
   }
 
